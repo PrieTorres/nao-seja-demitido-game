@@ -1,13 +1,15 @@
 extends BaseLevel
+class_name LevelPri
 
 signal level_finished(success: bool)
 
 @export var target_kills: int = 10
 @export var level_duration_sec: int = 15
-@export var spawn_interval_sec: float = 0.8
+@export var spawn_interval_sec: float = 0.5
 @export var max_bugs_alive: int = 50
 @export var bug_scene: PackedScene
 @export var screen_rect: Rect2 = Rect2(128, 96, 540, 300)  # área da “tela do PC” no Background
+@export var Level: LevelPri
 
 @onready var _spawn_timer: Timer = $SpawnTimer
 @onready var _level_timer: Timer = $LevelTimer
@@ -24,6 +26,23 @@ var _time_left: int
 func _ready() -> void:
 	if(_result_label):
 		_result_label.visible = false
+	
+	difficulty = LevelManager.difficulty
+	success_sounds = [
+		preload("res://All/pri1.wav"),
+	]
+	
+	fail_sounds = [
+		preload("res://All/pribad1.wav"),
+	]
+	
+	if difficulty == 1:
+		target_kills = 8
+	if difficulty == 2:
+		target_kills = 15
+	if difficulty == 3:
+		target_kills = 23
+	
 	_kills = 0
 	_alive = 0
 	_time_left = level_duration_sec
@@ -94,6 +113,9 @@ func _end_level(success: bool) -> void:
 	_level_timer.stop()
 	_result_label.visible = true
 	_result_label.text = "✅ SUCESSO!" if success else "❌ FRACASSO"
+	if success == true:
+		_success()
+		is_finished = true
 	emit_signal("level_finished", success)
 
 func _update_ui() -> void:

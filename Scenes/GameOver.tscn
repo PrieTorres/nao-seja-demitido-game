@@ -29,3 +29,15 @@ offset_top = 148.0
 offset_right = 565.0
 offset_bottom = 260.0
 text = "isso significa q vc perdeu..."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_left = 7.0
+offset_top = 401.0
+offset_right = 806.0
+offset_bottom = 602.0
+text = "desenvolvido por: Kélcia Kohls, Priscila T., Estêvão G., Khaee W., Valmir J.
+
+Assests: https://lospec.com/gallery/congusbongus/flat-retro-computer 
+https://pngtree.com/freepng/computer-bug-pixel-art-consequences-of-cybersecurity-threats-vector_12312435.html
+
+https://grafxkid.itch.io/"

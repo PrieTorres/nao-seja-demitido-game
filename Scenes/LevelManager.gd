@@ -18,8 +18,8 @@ class_name LevelManager
 var transition_going = false
 
 @onready var level_list: Array[PackedScene] = [
-	preload("res://Pri level/Level.tscn"),
 	preload("res://Scenes/Levels/Estevao/Escova/EscovaLevel.tscn"),
+	preload("res://Pri level/Level.tscn"),
 	preload("res://Scenes/Levels/Estevao/Patadas/Patadas.tscn"),
 	preload("res://Scenes/Levels/Estevao/LevelEstevao.tscn"),
 	preload("res://Kelcia Level/scene/level.tscn"),
@@ -30,6 +30,7 @@ var points = 0
 
 var level_start = [
 	"ESCOVA",
+	"MATE BUGS",
 	"NÃO LEVE PATADA",
 	"MARIO?",
 	"CAFÉZINHO"
@@ -37,8 +38,9 @@ var level_start = [
 
 var level_sound = [
 	preload("res://Sounds/boca.wav"),
-	preload("res://All/kelciastart.wav"),
 	preload("res://All/pristart.wav"),
+	preload("res://All/neidebad3.wav"),
+	preload("res://Sounds/Estevao/ai sim.wav"),
 	preload("res://All/kelciastart.wav"),
 ]
 var level_start_index = 0

@@ -18,4 +18,17 @@ offset_top = 43.0
 offset_right = 792.0
 offset_bottom = 376.0
 theme_override_font_sizes/normal_font_size = 100
-text = "BOA!"
+text = "BOA!
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = -2.0
+offset_top = 434.0
+offset_right = 800.0
+offset_bottom = 606.0
+text = "desenvolvido por: Kélcia Kohls, Priscila T., Estêvão G., Khaee W., Valmir J.
+
+Assests: https://lospec.com/gallery/congusbongus/flat-retro-computer 
+https://pngtree.com/freepng/computer-bug-pixel-art-consequences-of-cybersecurity-threats-vector_12312435.html
+
+https://grafxkid.itch.io/"
