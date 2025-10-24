@@ -2,12 +2,12 @@ extends BaseLevel
 
 signal level_finished(success: bool)
 
-@export var target_kills: int = 20
-@export var level_duration_sec: int = 60
-@export var spawn_interval_sec: float = 1.0
+@export var target_kills: int = 10
+@export var level_duration_sec: int = 15
+@export var spawn_interval_sec: float = 0.8
 @export var max_bugs_alive: int = 50
 @export var bug_scene: PackedScene
-@export var screen_rect: Rect2 = Rect2(128, 96, 800, 600)  # área da “tela do PC” no Background
+@export var screen_rect: Rect2 = Rect2(128, 96, 540, 300)  # área da “tela do PC” no Background
 
 @onready var _spawn_timer: Timer = $SpawnTimer
 @onready var _level_timer: Timer = $LevelTimer
