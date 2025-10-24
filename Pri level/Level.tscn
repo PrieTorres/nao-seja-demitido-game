@@ -1,11 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://cadbt47k3fq7f"]
 
 [ext_resource type="Texture2D" uid="uid://dmg0c7yxup1pi" path="res://Pri level/art/pc_background.png" id="1_bexhn"]
-[ext_resource type="Script" uid="uid://b2mkc71k7nmto" path="res://Pri level/level.gd" id="1_he06a"]
 [ext_resource type="Script" uid="uid://cst7ony8m4d2u" path="res://Pri level/scripts/Level.gd" id="1_t7iv1"]
+[ext_resource type="PackedScene" uid="uid://b27ybv5g75jfb" path="res://Pri level/scenes/Bug.tscn" id="2_he06a"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_he06a")
+script = ExtResource("1_t7iv1")
+bug_scene = ExtResource("2_he06a")
+
+[node name="LevelTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -10
@@ -13,49 +17,31 @@ position = Vector2(638.5, 358.5)
 scale = Vector2(3.62216, 3.19196)
 texture = ExtResource("1_bexhn")
 
-[node name="ScreenContainer" type="SubViewportContainer" parent="Background"]
-offset_left = -128.515
-offset_top = -96.9622
-offset_right = 128.791
-offset_bottom = 49.3427
-stretch = true
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="GameViewport" type="SubViewport" parent="Background/ScreenContainer"]
-disable_3d = true
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(257, 146)
-size_2d_override = Vector2i(640, 280)
-render_target_update_mode = 4
-
-[node name="GameRoot" type="Node2D" parent="Background/ScreenContainer/GameViewport"]
-script = ExtResource("1_t7iv1")
-game_viewport_path = NodePath("..")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Background/ScreenContainer/GameViewport/GameRoot"]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/ScreenContainer/GameViewport/GameRoot/CanvasLayer"]
+[node name="Box" type="HBoxContainer" parent="UI"]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TimeLabel" type="Label" parent="Background/ScreenContainer/GameViewport/GameRoot/CanvasLayer/HBoxContainer"]
+[node name="TimeLabel" type="Label" parent="UI/Box"]
 layout_mode = 2
 text = "Tempo: 30.0"
 
-[node name="ScoreLabel" type="Label" parent="Background/ScreenContainer/GameViewport/GameRoot/CanvasLayer/HBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="UI/Box"]
 visible = false
 layout_mode = 2
 text = "Kills: 0/10"
 horizontal_alignment = 2
 
-[node name="StatusLabel" type="Label" parent="Background/ScreenContainer/GameViewport/GameRoot/CanvasLayer/HBoxContainer"]
+[node name="StatusLabel" type="Label" parent="UI/Box"]
 layout_mode = 2
 
-[node name="SpawnTimer" type="Timer" parent="Background/ScreenContainer/GameViewport/GameRoot"]
+[node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="LevelTimer" type="Timer" parent="Background/ScreenContainer/GameViewport/GameRoot"]
-one_shot = true
+[node name="BugSpawnArea" type="Node2D" parent="."]
 
-[connection signal="timeout" from="Background/ScreenContainer/GameViewport/GameRoot/SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
-[connection signal="timeout" from="Background/ScreenContainer/GameViewport/GameRoot/LevelTimer" to="." method="_on_LevelTimer_timeout"]
+[node name="ScreenFrame" type="Sprite2D" parent="."]
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

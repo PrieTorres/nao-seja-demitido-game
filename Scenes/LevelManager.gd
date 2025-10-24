@@ -142,9 +142,18 @@ func handle_level_result() -> void:
 		Audio.stream = random_success_audio
 		Audio.play()
 	else:
-		var random_fail_text = current_level_instance.fail_texts[randi() % current_level_instance.fail_texts.size()]
-		var random_fail_audio = current_level_instance.fail_sounds[randi() % current_level_instance.fail_sounds.size()]
-		transition_scene.TextLabel.text = random_fail_text
+		var random_fail_text = ""
+		if current_level_instance.fail_texts.size() > 0:
+			random_fail_text = current_level_instance.fail_texts[randi() % current_level_instance.fail_texts.size()]
+		else:
+			random_fail_text = "Falha!"  # fallback padrão
+
+		var random_fail_audio = null
+		if current_level_instance.fail_sounds.size() > 0:
+			random_fail_audio = current_level_instance.fail_sounds[randi() % current_level_instance.fail_sounds.size()]
+
+		if transition_scene:
+			transition_scene.TextLabel.text = random_fail_text
 		lives -= 1
 		if lives == 0:
 			get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")

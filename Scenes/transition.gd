@@ -79,8 +79,9 @@ func transition_to(next_scene_packed: PackedScene, level_manager: LevelManager):
 
 	# Instance the next scene INSIDE the SubViewport (rendered as a texture)
 	var next_scene_instance: Node = next_scene_packed.instantiate()
-	next_scene_instance.LevelManager = level_manager
-	incoming_viewport.add_child(next_scene_instance)
+	if(next_scene_instance):
+		next_scene_instance.LevelManager = level_manager
+		incoming_viewport.add_child(next_scene_instance)
 	
 	# Enable input forwarding through the SubViewportContainer
 	incoming_container.mouse_filter = Control.MOUSE_FILTER_PASS
