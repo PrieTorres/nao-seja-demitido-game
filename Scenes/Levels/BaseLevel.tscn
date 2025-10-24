@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://deuchvrxxdoac"]
+
+[ext_resource type="Script" uid="uid://d1v8yjvfsasig" path="res://Scenes/Levels/base_level.gd" id="1_mb2ko"]
+[ext_resource type="PackedScene" uid="uid://0qdluh21rxsr" path="res://Scenes/Levels/Estevao/LevelEstevao.tscn" id="2_n8wt5"]
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_mb2ko")
+
+[node name="LevelEstevao" parent="." instance=ExtResource("2_n8wt5")]

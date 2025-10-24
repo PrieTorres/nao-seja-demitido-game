@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0dww3ufqabjo"]
+
+[ext_resource type="Script" uid="uid://d0jkqobrgynl3" path="res://Scenes/beginning.gd" id="1_c0ahy"]
+[ext_resource type="Script" uid="uid://d2cux8mb2hjhb" path="res://Shaders/wave_effect.gd" id="1_mo4iy"]
+[ext_resource type="VideoStream" uid="uid://cu340qvkriop5" path="res://video.ogv" id="3_clgng"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_kb1rn"]
+script = ExtResource("1_mo4iy")
+amplitude = 35.0
+period = 0.3
+spread = 0.05
+sharpness = 1.6
+play_once = true
+metadata/_custom_type_script = "uid://d2cux8mb2hjhb"
+
+[node name="Beginning" type="Node2D"]
+script = ExtResource("1_c0ahy")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 600.0
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.110997, 0.0079054, 1.20327e-08, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -312.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 50
+text = "Começo"
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_kb1rn")]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+stream = ExtResource("3_clgng")
+autoplay = true

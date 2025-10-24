@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://1p3smt0kut1y"]
+
+[ext_resource type="Script" uid="uid://k25r1snf6ikk" path="res://Scenes/game_over.gd" id="1_m5628"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5628"]
+bg_color = Color(0.066755, 0.066755, 0.066755, 1)
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_m5628")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -13.0
+offset_top = -7.0
+offset_right = 821.0
+offset_bottom = 620.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5628")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 198.0
+offset_top = 34.0
+offset_right = 710.0
+offset_bottom = 219.0
+theme_override_font_sizes/normal_font_size = 80
+text = "Game Over"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 294.0
+offset_top = 148.0
+offset_right = 565.0
+offset_bottom = 260.0
+text = "isso significa q vc perdeu..."

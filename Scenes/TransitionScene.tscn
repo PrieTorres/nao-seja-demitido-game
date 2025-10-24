@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6sk4al5app1k"]
+
+[ext_resource type="Script" uid="uid://cwxf0kkk8kfrm" path="res://Scenes/transition_scene.gd" id="1_5d8m0"]
+[ext_resource type="Script" uid="uid://d2cux8mb2hjhb" path="res://Shaders/wave_effect.gd" id="2_ng4y5"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_kb1rn"]
+script = ExtResource("2_ng4y5")
+amplitude = 35.0
+period = 0.3
+spread = 0.05
+sharpness = 1.6
+play_once = true
+metadata/_custom_type_script = "uid://d2cux8mb2hjhb"
+
+[node name="TransitionScene" type="Node2D"]
+script = ExtResource("1_5d8m0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 600.0
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.110997, 0.0079054, 1.20327e-08, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 50
+text = "SUCESSO!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_kb1rn")]
+
+[node name="left" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 314.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 20
+text = "Você ainda tem:"
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_kb1rn")]
+
+[node name="Lives" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -597.0
+offset_top = -224.0
+offset_right = 599.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_font_sizes/bold_italics_font_size = 100
+theme_override_font_sizes/italics_font_size = 100
+theme_override_font_sizes/mono_font_size = 100
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 100
+text = "3"
+horizontal_alignment = 1
+
+[node name="vidas" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 440.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 20
+text = "VIDAS"
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_kb1rn")]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cld0jhdo84amu"
+path="res://.godot/imported/deu ruim.mp3-d995c109b3bc0279580bb8eea1b0ca48.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Estevao/deu ruim.mp3"
+dest_files=["res://.godot/imported/deu ruim.mp3-d995c109b3bc0279580bb8eea1b0ca48.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

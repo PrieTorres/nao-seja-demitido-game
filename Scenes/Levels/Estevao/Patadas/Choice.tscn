@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://clgexd4qsnoor"]
+
+[ext_resource type="Texture2D" uid="uid://bymknmegufb8n" path="res://choice.png" id="1_01wkj"]
+[ext_resource type="Script" uid="uid://blkfux6xuon0y" path="res://Scenes/Levels/Estevao/Patadas/choice.gd" id="1_xaagc"]
+
+[node name="Choice" type="Node2D"]
+script = ExtResource("1_xaagc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(95, 45)
+texture = ExtResource("1_01wkj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 190.0
+offset_bottom = 65.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 190.0
+offset_bottom = 64.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Você quem vai fazer"
+horizontal_alignment = 1
+vertical_alignment = 1

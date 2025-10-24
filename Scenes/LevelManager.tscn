@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://be065j7xcx2cx"]
+
+[ext_resource type="Script" uid="uid://kiwfylojcfjk" path="res://Scenes/LevelManager.gd" id="1_g2i8c"]
+[ext_resource type="PackedScene" uid="uid://c6sk4al5app1k" path="res://Scenes/TransitionScene.tscn" id="3_r3h64"]
+
+[node name="BaseScene" type="Node2D"]
+
+[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("LevelTimer", "TransitionTimer")]
+unique_name_in_owner = true
+script = ExtResource("1_g2i8c")
+LevelTimer = NodePath("LevelTimer")
+TransitionTimer = NodePath("TransitionTimer")
+
+[node name="LevelTimer" type="Timer" parent="LevelManager"]
+wait_time = 3.0
+
+[node name="TransitionTimer" type="Timer" parent="LevelManager"]
+wait_time = 2.0
+
+[node name="Control" type="Control" parent="LevelManager"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TransitionScene" parent="LevelManager" instance=ExtResource("3_r3h64")]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="LevelManager"]
+volume_db = 6.0
+
+[node name="MainAudio" type="AudioStreamPlayer" parent="LevelManager"]
+volume_db = -27.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 300)
+
+[connection signal="timeout" from="LevelManager/LevelTimer" to="LevelManager" method="_on_level_timer_timeout"]
+[connection signal="timeout" from="LevelManager/TransitionTimer" to="LevelManager" method="_on_transition_timer_timeout"]

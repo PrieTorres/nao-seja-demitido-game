@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://0qdluh21rxsr"]
+
+[ext_resource type="Texture2D" uid="uid://bi8sctv4qpgmv" path="res://Sprites/mario_sprite.png" id="1_4wsj6"]
+[ext_resource type="Script" uid="uid://4qfkikpoglyb" path="res://Scenes/Levels/Estevao/estevao_player.gd" id="1_54i5x"]
+[ext_resource type="Script" uid="uid://bv16xhbuoqhqw" path="res://Scenes/Levels/Estevao/level_estevao.gd" id="1_cfmfl"]
+[ext_resource type="Texture2D" uid="uid://5ovkwrropom8" path="res://Sprites/mushroom.webp" id="3_cpyr3"]
+[ext_resource type="Script" uid="uid://bfmdv8y0iwshd" path="res://Scenes/Levels/Estevao/mushroom.gd" id="3_h14rc"]
+[ext_resource type="AudioStream" uid="uid://cdsifk0xghxto" path="res://Sounds/round_end.wav" id="6_4fm77"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfmfl"]
+bg_color = Color(0.284206, 0.686066, 0.535933, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpyr3"]
+size = Vector2(52, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5kmc"]
+size = Vector2(37, 48)
+
+[node name="LevelEstevao" type="Node2D" node_paths=PackedStringArray("mushrooms")]
+script = ExtResource("1_cfmfl")
+mushrooms = [NodePath("Mushroom"), NodePath("Mushroom2"), NodePath("Mushroom3")]
+
+[node name="Food" type="Node2D" parent="."]
+
+[node name="Panel" type="Panel" parent="Food"]
+offset_left = -37.0
+offset_top = -21.0
+offset_right = 862.0
+offset_bottom = 646.0
+rotation = -0.0100649
+theme_override_styles/panel = SubResource("StyleBoxFlat_cfmfl")
+
+[node name="Mushroom" type="StaticBody2D" parent="."]
+position = Vector2(259, 489)
+script = ExtResource("3_h14rc")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mushroom"]
+position = Vector2(-1.19209e-07, 7.62939e-06)
+shape = SubResource("RectangleShape2D_cpyr3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushroom"]
+position = Vector2(1.52588e-05, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_cpyr3")
+
+[node name="Mushroom2" type="StaticBody2D" parent="."]
+position = Vector2(641, 352)
+script = ExtResource("3_h14rc")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mushroom2"]
+position = Vector2(-1.19209e-07, 7.62939e-06)
+shape = SubResource("RectangleShape2D_cpyr3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushroom2"]
+position = Vector2(1.52588e-05, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_cpyr3")
+
+[node name="Mushroom3" type="StaticBody2D" parent="."]
+position = Vector2(509, 149)
+script = ExtResource("3_h14rc")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mushroom3"]
+position = Vector2(-1.19209e-07, 7.62939e-06)
+shape = SubResource("RectangleShape2D_cpyr3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushroom3"]
+position = Vector2(1.52588e-05, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_cpyr3")
+
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("Level")]
+position = Vector2(214, 200)
+script = ExtResource("1_54i5x")
+Level = NodePath("..")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(3.8147e-06, 3.69549e-06)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_4wsj6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_k5kmc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_4fm77")
+volume_db = -25.0

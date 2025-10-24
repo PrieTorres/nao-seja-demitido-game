@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://r2wewrvo83y2"]
+
+[ext_resource type="Script" uid="uid://oepdrmikb1c0" path="res://Scenes/Levels/Estevao/Patadas/patadas_level.gd" id="1_nm80j"]
+[ext_resource type="Texture2D" uid="uid://by7fy0wb10qkh" path="res://All/neide1.png" id="2_3oto4"]
+[ext_resource type="PackedScene" uid="uid://clgexd4qsnoor" path="res://Scenes/Levels/Estevao/Patadas/Choice.tscn" id="2_nm80j"]
+[ext_resource type="Texture2D" uid="uid://bi8emoi1r2x5a" path="res://Sprites/seta.jpg" id="4_s4fbu"]
+
+[node name="Patadas" type="Node2D" node_paths=PackedStringArray("choice1", "choice2", "choice3", "choice4")]
+script = ExtResource("1_nm80j")
+choice1 = NodePath("Choice")
+choice2 = NodePath("Choice2")
+choice3 = NodePath("Choice3")
+choice4 = NodePath("Choice4")
+fail_texts = Array[String](["Menino burro!!", "Ai não né"])
+
+[node name="Neide" type="Sprite2D" parent="."]
+position = Vector2(400, 300)
+texture = ExtResource("2_3oto4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(400, 300)
+
+[node name="Choice" parent="." instance=ExtResource("2_nm80j")]
+position = Vector2(304, 304)
+
+[node name="Choice2" parent="." instance=ExtResource("2_nm80j")]
+position = Vector2(506, 394)
+
+[node name="Choice3" parent="." instance=ExtResource("2_nm80j")]
+position = Vector2(303, 488)
+
+[node name="Choice4" parent="." instance=ExtResource("2_nm80j")]
+position = Vector2(105, 395)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Patada" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 90.0
+offset_right = 715.0
+offset_bottom = 371.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Você vai tomar café da manhã?"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+volume_db = -25.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(361, 429)
+scale = Vector2(0.0281888, 0.0281888)
+texture = ExtResource("4_s4fbu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(432, 430)
+rotation = 3.14125
+scale = Vector2(0.0281888, 0.0281888)
+texture = ExtResource("4_s4fbu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(397, 394)
+rotation = 1.56535
+scale = Vector2(0.0281888, 0.0281888)
+texture = ExtResource("4_s4fbu")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(396, 465)
+rotation = -1.56528
+scale = Vector2(0.0281888, 0.0281888)
+texture = ExtResource("4_s4fbu")

@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://d4gh0xmamg3ks"
+path="res://.godot/imported/global_position.x = WIN_POSITION_X and global_position.y = WIN_POSITION_Y.png-68fe4dd385b2762fda624a9824b5f9db.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Kelcia Level/sprites/global_position.x = WIN_POSITION_X and global_position.y = WIN_POSITION_Y.png"
+dest_files=["res://.godot/imported/global_position.x = WIN_POSITION_X and global_position.y = WIN_POSITION_Y.png-68fe4dd385b2762fda624a9824b5f9db.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

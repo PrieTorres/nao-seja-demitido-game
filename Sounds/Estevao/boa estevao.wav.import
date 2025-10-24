@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ogg8atxx6780"
+path="res://.godot/imported/boa estevao.wav-ad57599c07a1e35224161e3254ef0729.sample"
+
+[deps]
+
+source_file="res://Sounds/Estevao/boa estevao.wav"
+dest_files=["res://.godot/imported/boa estevao.wav-ad57599c07a1e35224161e3254ef0729.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh4ltjjkovfvp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msqbs"]
+bg_color = Color(0.708883, 0.524995, 0.732001, 1)
+
+[node name="Credits" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 801.0
+offset_bottom = 610.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_msqbs")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 274.0
+offset_top = 43.0
+offset_right = 792.0
+offset_bottom = 376.0
+theme_override_font_sizes/normal_font_size = 100
+text = "BOA!"

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwhu7iq81iwvl"]
+
+[ext_resource type="Script" uid="uid://fspv1eqr25mk" path="res://Scenes/Levels/Estevao/Escova/escova_level.gd" id="1_gyxvj"]
+[ext_resource type="Texture2D" uid="uid://rmb8k3sdmvyo" path="res://Sprites/estevao1.png" id="2_4gvcb"]
+[ext_resource type="AudioStream" uid="uid://det76e75cedj4" path="res://Sounds/boca.wav" id="2_bxspt"]
+[ext_resource type="Texture2D" uid="uid://dab0bq67ari3q" path="res://Sprites/escova.png" id="3_4gvcb"]
+[ext_resource type="AudioStream" uid="uid://cdsifk0xghxto" path="res://Sounds/round_end.wav" id="4_f888v"]
+[ext_resource type="AudioStream" uid="uid://dqio0nqsp1kub" path="res://Sounds/brush.mp3" id="5_at7gq"]
+[ext_resource type="Texture2D" uid="uid://bi8emoi1r2x5a" path="res://Sprites/seta.jpg" id="7_g6jky"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gvcb"]
+bg_color = Color(0.43717, 0.63164, 0.726483, 1)
+
+[node name="EscovaLevel" type="Node2D"]
+script = ExtResource("1_gyxvj")
+wait_time = 3.0
+start_sound = ExtResource("2_bxspt")
+success_sounds = [""]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 802.0
+offset_bottom = 611.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4gvcb")
+
+[node name="Mouth" type="Sprite2D" parent="."]
+position = Vector2(399, 273)
+scale = Vector2(0.643375, 0.643375)
+texture = ExtResource("2_4gvcb")
+
+[node name="Escova" type="Sprite2D" parent="."]
+position = Vector2(546, 372)
+scale = Vector2(0.132202, 0.132202)
+texture = ExtResource("3_4gvcb")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_f888v")
+volume_db = -25.0
+
+[node name="Brush" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_at7gq")
+volume_db = -5.0
+autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(207.45, 105.875)
+scale = Vector2(0.0635204, 0.0635204)
+texture = ExtResource("7_g6jky")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(598, 112)
+rotation = -3.13321
+scale = Vector2(0.0635204, 0.0635204)
+texture = ExtResource("7_g6jky")

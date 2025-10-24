@@ -1,0 +1,125 @@
+[gd_scene load_steps=13 format=4 uid="uid://23wcsv7xqfrg"]
+
+[ext_resource type="Script" uid="uid://dsuqgfb7n66kc" path="res://Kelcia Level/scene/level.gd" id="1_8afht"]
+[ext_resource type="PackedScene" uid="uid://d2jx0y06k7t6" path="res://Kelcia Level/entities/player.tscn" id="1_s4405"]
+[ext_resource type="TileSet" uid="uid://c4qln3naqqdqv" path="res://Kelcia Level/tiles/chao.tres" id="2_dmi07"]
+[ext_resource type="Script" uid="uid://dd7w6x0nn3t47" path="res://Kelcia Level/scene/plataforma_movel.gd" id="3_ukt71"]
+[ext_resource type="PackedScene" uid="uid://k4m8np45ux7c" path="res://Kelcia Level/forest.tscn" id="4_7g0b6"]
+[ext_resource type="Script" uid="uid://cw46f22u1vq4g" path="res://Kelcia Level/scene/plataforma_movel_2.gd" id="4_ismto"]
+[ext_resource type="Script" uid="uid://d315hfwpufmjf" path="res://Kelcia Level/scene/plataforma_movel_3.gd" id="5_bddx0"]
+[ext_resource type="Texture2D" uid="uid://d4gh0xmamg3ks" path="res://Kelcia Level/sprites/global_position.x = WIN_POSITION_X and global_position.y = WIN_POSITION_Y.png" id="6_bddx0"]
+[ext_resource type="AudioStream" uid="uid://cdsifk0xghxto" path="res://Sounds/round_end.wav" id="9_rm4e5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u2b8d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_bddx0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2b8d"]
+size = Vector2(428.024, 523.736)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bddx0"]
+size = Vector2(970, 26.5)
+
+[node name="level" type="Node2D" node_paths=PackedStringArray("cafe1", "cafe2", "cafe3")]
+position = Vector2(-382, -53)
+script = ExtResource("1_8afht")
+cafe1 = NodePath("Cafe1")
+cafe2 = NodePath("Cafe2")
+cafe3 = NodePath("Cafe3")
+wait_time = 8.0
+
+[node name="Cafe3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, -150)
+scale = Vector2(0.1075, 0.0882862)
+sprite_frames = SubResource("SpriteFrames_u2b8d")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Cafe3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cafe3/Area2D"]
+position = Vector2(2.85677, -5.09399)
+shape = SubResource("RectangleShape2D_u2b8d")
+
+[node name="Cafe2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-45, -58)
+scale = Vector2(0.1075, 0.0882862)
+sprite_frames = SubResource("SpriteFrames_u2b8d")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Cafe2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cafe2/Area2D"]
+position = Vector2(2.85677, -5.09399)
+shape = SubResource("RectangleShape2D_u2b8d")
+
+[node name="Cafe1" type="AnimatedSprite2D" parent="."]
+position = Vector2(101, 33)
+scale = Vector2(0.1075, 0.0882862)
+sprite_frames = SubResource("SpriteFrames_u2b8d")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Cafe1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cafe1/Area2D"]
+position = Vector2(2.85677, -5.09399)
+shape = SubResource("RectangleShape2D_u2b8d")
+
+[node name="CharacterBody2D" parent="." node_paths=PackedStringArray("Level") instance=ExtResource("1_s4405")]
+position = Vector2(-91, 147)
+Level = NodePath("..")
+
+[node name="tiles" type="Node2D" parent="."]
+
+[node name="Chao" type="TileMapLayer" parent="tiles"]
+light_mask = 3
+position = Vector2(0, -2)
+tile_map_data = PackedByteArray("AAD3/wwAAAADAAYAAAD4/wwAAAAEAAYAAAD5/wwAAAAEAAYAAAD6/wwAAAAEAAYAAAD7/wwAAAAEAAYAAAD8/wwAAAAEAAYAAAD9/wwAAAAEAAYAAAD+/wwAAAAEAAYAAAD//wwAAAAEAAYAAAAAAAwAAAAEAAYAAAABAAwAAAAEAAYAAAACAAwAAAAEAAYAAAADAAwAAAAEAAYAAAAEAAwAAAAEAAYAAAAFAAwAAAAEAAYAAAAGAAwAAAAHAAQAAAD+//j/AAAJAAMAAAD///j/AAAKAAMAAAAAAPj/AAANAAMAAAD6/wsAAAAEAAEAAAD7/wsAAAAEAAEAAAD8/wsAAAAEAAEAAAD9/wsAAAADAAMAAAD+/wsAAAAEAAIAAAD//wsAAAAEAAIAAAAAAAsAAAAEAAIAAAABAAsAAAAEAAIAAAACAAsAAAAEAAIAAAADAAsAAAAFAAMAAAAEAAsAAAAGAAMAAAAFAAsAAAAGAAMAAAAGAAsAAAAHAAMAAAADAAoAAAAFAAEAAAACAAoAAAAEAAEAAAABAAoAAAAEAAEAAAAAAAoAAAAEAAEAAAD//woAAAAEAAEAAAD+/woAAAAEAAEAAAD5/wsAAAAEAAEAAAD4/wsAAAAFAAMAAAD3/wsAAAADAAIAAAD3/woAAAADAAEAAAD4/woAAAAFAAEAAAD9/woAAAADAAEAAAD7//r/AAAPAAMAAAAHAAQAAAANAAMAAAAFAAQAAAAKAAMAAAAGAAQAAAAKAAMAAAD6/wQAAAAJAAMAAAD7/wQAAAAKAAMAAAD8/wQAAAAKAAMAAAD9/wQAAAANAAMAAAAEAAQAAAAJAAMAAAD4/wMAAAAPAAMAAAD7/wEAAAAPAAMAAAAEAPn/AAANAAMAAAADAPn/AAAMAAMAAAACAPn/AAAJAAMAAAAHAPv/AAAJAAMAAAAIAPv/AAAKAAMAAAAJAPv/AAANAAMAAAD4////AAAPAAMAAAA=")
+tile_set = ExtResource("2_dmi07")
+
+[node name="plataforma movel" type="TileMapLayer" parent="tiles"]
+light_mask = 3
+position = Vector2(0, -2)
+tile_map_data = PackedByteArray("AAAGAAgAAAANAAMAAAAFAAgAAAAKAAMAAAADAAgAAAAJAAMAAAAEAAgAAAAKAAMAAAD7//7/AAAJAAMAAAD8//7/AAAKAAMAAAD9//7/AAAKAAMAAAD+//7/AAAKAAMAAAD///7/AAANAAMAAAA=")
+tile_set = ExtResource("2_dmi07")
+script = ExtResource("3_ukt71")
+
+[node name="plataforma movel2" type="TileMapLayer" parent="tiles"]
+light_mask = 3
+position = Vector2(0, -2)
+tile_map_data = PackedByteArray("AAAAAAYAAAANAAMAAAD9/wYAAAAJAAMAAAD+/wYAAAAKAAMAAAD//wYAAAAKAAMAAAAFAP3/AAANAAMAAAACAP3/AAAJAAMAAAADAP3/AAAKAAMAAAAEAP3/AAAKAAMAAAA=")
+tile_set = ExtResource("2_dmi07")
+script = ExtResource("4_ismto")
+
+[node name="plataforma movel3" type="TileMapLayer" parent="tiles"]
+light_mask = 3
+position = Vector2(0, -2)
+tile_map_data = PackedByteArray("AAAAAAEAAAAJAAMAAAADAAEAAAANAAMAAAABAAEAAAAKAAMAAAACAAEAAAAKAAMAAAA=")
+tile_set = ExtResource("2_dmi07")
+script = ExtResource("5_bddx0")
+
+[node name="forest" parent="." instance=ExtResource("4_7g0b6")]
+position = Vector2(-283, -286)
+
+[node name="kill" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="kill"]
+position = Vector2(5, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill/Area2D"]
+position = Vector2(19, 228.5)
+shape = SubResource("RectangleShape2D_bddx0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_rm4e5")
+volume_db = -20.0
+
+[connection signal="body_shape_entered" from="Cafe3/Area2D" to="CharacterBody2D" method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="Cafe2/Area2D" to="CharacterBody2D" method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="Cafe1/Area2D" to="CharacterBody2D" method="_on_area_2d_body_shape_entered"]

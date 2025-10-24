@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://k4m8np45ux7c"]
+
+[ext_resource type="Texture2D" uid="uid://c3uc81njj1368" path="res://Kelcia Level/sprites/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="3_uq144"]
+[ext_resource type="Texture2D" uid="uid://wraf8vol3sie" path="res://Kelcia Level/sprites/Seasonal Tilesets/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="4_vmuxp"]
+[ext_resource type="Texture2D" uid="uid://brymtssg45q8j" path="res://Kelcia Level/sprites/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="5_8im6m"]
+
+[node name="forest" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/6"]
+texture_repeat = 2
+position = Vector2(308.5, 214)
+scale = Vector2(2.15625, 3.20192)
+texture = ExtResource("3_uq144")
+
+[node name="5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/5"]
+texture_repeat = 2
+position = Vector2(267, 496)
+scale = Vector2(1.84028, 1)
+texture = ExtResource("4_vmuxp")
+
+[node name="4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4"]
+texture_repeat = 2
+position = Vector2(168.5, 195)
+scale = Vector2(2.17014, 1.89423)
+texture = ExtResource("5_8im6m")
